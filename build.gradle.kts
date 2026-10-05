@@ -14,8 +14,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("io.rest-assured:rest-assured:6.0.1")
+    testImplementation("org.assertj:assertj-core:3.27.7")
     // Source: https://mvnrepository.com/artifact/io.rest-assured/json-path
     implementation("io.rest-assured:json-path:6.0.1")
+    implementation("tools.jackson.core:jackson-databind:3.2.3")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
+
 }
 
 tasks.test {
@@ -43,9 +47,9 @@ useJUnitPlatform {
 }
 }
 
-//tasks.register<Test>("smokeTest") {
-//group = "Stest"
-//useJUnitPlatform {
-//includeTags("smoke")
-//}
-//}
+tasks.register<Test>("runsmokeTest") {
+group = "Smoke"
+useJUnitPlatform {
+includeTags("smoke")
+}
+}
