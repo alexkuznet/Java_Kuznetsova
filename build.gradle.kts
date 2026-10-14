@@ -53,3 +53,10 @@ useJUnitPlatform {
 includeTags("smoke")
 }
 }
+
+tasks.register<Test>("runapiTest") {
+    group = "API"
+    useJUnitPlatform {
+        includeTags("api")
+    }
+}
